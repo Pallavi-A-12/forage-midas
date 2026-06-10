@@ -21,4 +21,7 @@ public class UserPopulator {
             databaseConduit.save(user);
         }
     }
+    public DatabaseConduit getDatabaseConduit() {
+        return databaseConduit;
+    }
 }

@@ -38,6 +38,9 @@ public class TaskThreeTests {
         logger.info("----------------------------------------------------------");
         logger.info("use your debugger to find out what waldorf's balance is after all transactions are processed");
         logger.info("kill this test once you find the answer");
+        
+        System.out.println(userPopulator.getDatabaseConduit().getUserRepository().findAll());
+        
         while (true) {
             Thread.sleep(20000);
             logger.info("...");
