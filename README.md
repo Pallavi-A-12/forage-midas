@@ -1,5 +1,5 @@
-# Midas System
-Project repository for the JPMC Advanced Software Engineering Forage program
+# Midas-Core System
+Project repository for the **JPMorgan Chase & co** Advanced Software Engineering Forage program.
 
 ## Project Details
 **Company Name:** JPMorgan Chase & Co
@@ -31,7 +31,7 @@ In this program, I will focus on Midas Core — the service responsible for rece
 - **API:** REST API
 - **Testing:** JUnit
 
-## Tasks
+## My Tasks
  ### Task-1: Project Setup & Running Test Cases
 
 ![Task1-comleted](./tasks/task1.png)
@@ -63,6 +63,17 @@ In this program, I will focus on Midas Core — the service responsible for rece
 - Created a *TransactionRecord** JPA entity and persist valid transactions while discarding invalid ones.
 - Updated the sender and recipient balances when transactions are successfully processed.
 - I run TaskThreeTests, to inspect the final balance of the waldorf user by debugging, and I submit the rounded-down value.
+
+### Task-4: REST API Integration
+
+![Task4-completed](./tasks/task4.png)
+
+- Runing the provided Transaction Incentive API service locally and then connected to Midas Core to its /incentive endpoint.
+- Implemented a method that posts validated Transaction objects to the Incentive API and then to enable to make receive an Incentive response.
+- Updated transaction-processing logic to store the Incentive amount and correctly adjusted user's balances by adding incentives to recipients but not subtracting them from senders.
+- Finally, Runed TaskFourTests, by debugging to get wilbur’s final balance, and submited the rounded-down result.
+
+
 
 
 
