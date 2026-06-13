@@ -1,81 +1,131 @@
-# Midas-Core System
-Project repository for the **JPMorgan Chase & co** Advanced Software Engineering Forage program.
 
-## Project Details
+# Midas Core Banking Transaction System
+
+A backend transaction processing system built using 
+**Java**, **Spring Boot**, **Apache Kafka**, and **REST 
+APIs** as part of the JPMorgan Chase Software 
+Engineering Virtual Experience Program.
+
+## Project Details:
 **Company Name:** JPMorgan Chase & Co
-
 **Program:** Advanced Software Engineering Project
-
 **Project Name:** forage-midas
 
-## About Project
-The Midas system, a high-profile initiative responsible for processing financial transactions at scale.
+## Features
 
-In this program, I will focus on Midas Core — the service responsible for receiving, validating, and recording financial transactions.
+* Process financial transactions using Kafka messaging
+* Validate sender and recipient before processing transactions
+* Update user balances after successful transactions
+* Integrate external Incentive API using REST API
+* Add incentive amount to recipient balance
+* Expose REST API to fetch user account balance
+* Store user data using H2 Database
 
- Midas Core relies on several external systems:
+## Tech Stack
 
-- Kafka to receive new transactions
-- A SQL database to validate and store data
-- A REST API to expose processed information
+* Java
+* Spring Boot
+* Apache Kafka
+* REST API
+* H2 Database
+* Maven
+* JUnit Testing
 
-## 💻 Tech Stack & Tools
+## Project Structure
 
-- **Language:** Java 17
-- **IDE:** Eclipse / IntelliJ CE
-- **Build Tool:** Maven
-- **Framework:** SpringBoot
-- **Data Access:** Spring Data JPA
-- **Database:** H2 (In-Memory)
-- **Message Queuing:** Apache Kafka
-- **API:** REST API
-- **Testing:** JUnit
+```text
+src/
+├── main/
+│   ├── java/com/jpmc/midascore/
+│   ├── controller/
+│   ├── component/
+│   ├── repository/
+│   ├── entity/
+│   └── foundation/
+│
+├── test/
+│   └── Task Tests
+```
 
-## My Tasks
- ### Task-1: Project Setup & Running Test Cases
+## API Endpoint
 
-![Task1-comleted](./tasks/task1.png)
+### Get User Balance
 
-**What I Did!**
+```http
+GET /balance?userId={id}
+```
 
-- I set up local development environment by installing Java 17, in Eclipse IDE.
-- I exprore the existing project scafflod to understand how the midascore service is structured.
-- I add the required dependencies to my spring Boot Project.
--  Build and run TaskOneTests. And Submitted the TaskOneTests output snippet.
+Example:
 
-### Task-2: Kafka-Integration
+```http
+http://localhost:33400/balance?userId=9
+```
 
-![Task2-completed](./tasks/task2.png)
+Response:
 
-**What I Did!**
+```json
+{
+  "amount": 3434.0002
+}
+```
 
-- I implemented a Kafka listener in Midas Core that reads from the topic defined in application.yml and deserializes each incoming message into the provided Transaction class.
-- I run the TaskTwoTests, using debugger to inspect the first four received transactions, and I record the amounts attached to each.
+## How to Run the Project
 
-### Task-3: H2-Integration
+### 1. Clone the Repository
 
-![Task3-completed](./tasks/task3.png)
+```bash
+git clone https://github.com/Pallavi-A-12/forage-midas
+```
 
-**What I Did!**
+### 2. Open Project
 
-- I configure Midas Core to use an H2 in-memory database       through Spring Boot and JPA.
-- Implement validation logic to determine whether a transaction is valid based on user IDs and account balances.
-- Created a *TransactionRecord** JPA entity and persist valid transactions while discarding invalid ones.
-- Updated the sender and recipient balances when transactions are successfully processed.
-- I run TaskThreeTests, to inspect the final balance of the waldorf user by debugging, and I submit the rounded-down value.
+Open the project in **Eclipse IDE** or **IntelliJ IDEA**.
 
-### Task-4: REST API Integration
+### 3. Run Incentive API
 
-![Task4-completed](./tasks/task4.png)
+Go to the `services` folder and run:
 
-- Runing the provided Transaction Incentive API service locally and then connected to Midas Core to its /incentive endpoint.
-- Implemented a method that posts validated Transaction objects to the Incentive API and then to enable to make receive an Incentive response.
-- Updated transaction-processing logic to store the Incentive amount and correctly adjusted user's balances by adding incentives to recipients but not subtracting them from senders.
-- Finally, Runed TaskFourTests, by debugging to get wilbur’s final balance, and submited the rounded-down result.
+```bash
+java -jar transaction-incentive.jar
+```
 
+### 4. Run Application
 
+Run:
 
+```text
+MidasCoreApplication.java
+```
 
+### 5. Run Tests
 
+Run the following task tests:
 
+* TaskOneTests
+* TaskTwoTests
+* TaskThreeTests
+* TaskFourTests
+* TaskFiveTests
 
+## Learning Outcomes
+
+Through this project, I learned:
+
+* Backend transaction processing
+* Kafka messaging system
+* REST API integration using RestTemplate
+* Spring Boot architecture
+* Database operations with H2
+* Debugging and testing in Java applications
+
+## Certifiacte of Completion Forage Job Simulation virtual Job Experience
+
+![certicate of completion](./docs/forageC1.png)
+
+## 🏅 Credits & Resources
+
+This project was completed as part of the **JPMorgan Chase & Co.** virtual experience program on **[Forage](https://www.theforage.com/)**. 
+
+* **Program Overview:** Developed hands-on, industry-standard skills in simulated environments designed by JPMorgan Chase professionals. 
+* **Official Platform:** Explore free, self-paced job simulations and industry career tracks on the [Forage Platform](https://www.theforage.com/).
+* **JPMorgan Chase Careers:** Learn more about technology, finance, and career opportunities at [JPMorgan Chase & Co](https://www.jpmorganchase.com/careers)
