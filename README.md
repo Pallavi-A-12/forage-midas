@@ -47,28 +47,6 @@ src/
 │   └── Task Tests
 ```
 
-## API Endpoint
-
-### Get User Balance
-
-```http
-GET /balance?userId={id}
-```
-
-Example:
-
-```http
-http://localhost:33400/balance?userId=9
-```
-
-Response:
-
-```json
-{
-  "amount": 3434.0002
-}
-```
-
 ## How to Run the Project
 
 ### 1. Clone the Repository
