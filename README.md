@@ -96,7 +96,7 @@ Through this project, I learned:
 * Database operations with H2
 * Debugging and testing in Java applications
 
-## Certifiacte of Completion Forage Job Simulation virtual Job Experience
+## Certifiacate of Completion Forage Job Simulation virtual Job Experience
 
 ![certicate of completion](./docs/forageC1.png)
 
